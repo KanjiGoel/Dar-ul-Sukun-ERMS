@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Dar-ul-Sukun ERMS</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}">
+
+        <h2>Dar-ul-Sukun</h2>
+
+    </div>
+
+    <ul>
+
+        <li class="active">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </li>
+
+        <li>
+            <i class="fa-solid fa-users"></i>
+            Employees
+        </li>
+
+        <li>
+            <i class="fa-solid fa-briefcase"></i>
+            Designations
+        </li>
+
+        <li>
+            <i class="fa-solid fa-chart-column"></i>
+            Reports
+        </li>
+
+        <li>
+            <i class="fa-solid fa-user"></i>
+            My Profile
+        </li>
+
+        <li>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="main">
+
+<header>
+
+<div class="welcome">
+
+<h1>Welcome Supervisor 👋</h1>
+
+<p>Dar-ul-Sukun Employee Record Management System</p>
+
+</div>
+
+</header>
+
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-users"></i>
+
+<h2>35</h2>
+
+<p>Total Employees</p>
+
+</div>
+
+
+<div class="card">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h2>8</h2>
+
+<p>Designations</p>
+
+</div>
+
+
+<div class="card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h2>5</h2>
+
+<p>Reports</p>
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+<div class="activities">
+
+<h2>Recent Activities</h2>
+
+<ul>
+
+<li>✔ New Employee Added</li>
+
+<li>✔ Salary Updated</li>
+
+<li>✔ Promotion Added</li>
+
+<li>✔ Employee Profile Updated</li>
+
+</ul>
+
+</div>
+
+
+<div class="quick">
+
+<h2>Quick Actions</h2>
+
+<button>Add Employee</button>
+
+<button>Employee List</button>
+
+<button>Designations</button>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

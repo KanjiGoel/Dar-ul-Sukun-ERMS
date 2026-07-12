@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Documents</title>
+</head>
+<body>
+
+<h1>Employee Documents</h1>
+
+<a href="{{ url_for('document.add_document') }}">
+    Upload Document
+</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Employee</th>
+    <th>Document Type</th>
+    <th>File Path</th>
+    <th>Notes</th>
+    <th>Upload Date</th>
+</tr>
+
+{% for doc in documents %}
+
+<tr>
+
+    <td>{{ doc.employee.employee_name }}</td>
+
+    <td>{{ doc.document_type }}</td>
+
+    <td>{{ doc.file_path if doc.file_path else '-' }}</td>
+
+    <td>{{ doc.notes if doc.notes else '-' }}</td>
+
+    <td>{{ doc.upload_date }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Education</title>
+</head>
+<body>
+
+<h2>Add Education</h2>
+
+<form method="POST">
+
+    <p>
+        Employee<br>
+        <select name="employee_id">
+            {% for emp in employees %}
+            <option value="{{ emp.employee_id }}">
+                {{ emp.employee_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        Degree Name<br>
+        <input type="text" name="degree_name">
+    </p>
+
+    <p>
+        Institute Name<br>
+        <input type="text" name="institute">
+    </p>
+
+    <p>
+        Passing Year<br>
+        <input type="number" name="year">
+    </p>
+
+    <button type="submit">
+        Save Education
+    </button>
+
+</form>
+
+</body>
+</html>

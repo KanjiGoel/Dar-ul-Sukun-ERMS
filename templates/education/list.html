@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Education Records</title>
+</head>
+<body>
+
+<h1>Education Records</h1>
+
+<a href="{{ url_for('education.add_education') }}">
+    Add Education
+</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Employee</th>
+    <th>Degree</th>
+    <th>Institute</th>
+    <th>Passing Year</th>
+</tr>
+
+{% for edu in educations %}
+
+<tr>
+    <td>{{ edu.employee.employee_name }}</td>
+    <td>{{ edu.degree }}</td>
+    <td>{{ edu.institute_name }}</td>
+    <td>{{ edu.passing_year }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="page-title">
+Welcome Supervisor 
+</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Total Employees</h3>
+
+<h1>35</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Designations</h3>
+
+<h1>8</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Active Employees</h3>
+
+<h1>31</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Reports</h3>
+
+<h1>5</h1>
+
+</div>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="chart-box">
+
+<h2>Employees by Designation</h2>
+
+<!-- <div class="chart-placeholder"> 
+
+📊 Chart will appear here
+
+</div> -->
+
+<canvas id="employeeChart"></canvas>
+
+</div>
+
+<div class="activity-box">
+
+<h2>Recent Activities</h2>
+
+<ul>
+
+<li>✔ Employee Added</li>
+
+<li>✔ Salary Updated</li>
+
+<li>✔ Promotion Added</li>
+
+<li>✔ Designation Updated</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="quick-actions">
+
+    <h2>Quick Actions</h2>
+
+    <a href="{{ url_for('employee.add_employee') }}" class="quick-btn">
+        Add Employee
+    </a>
+
+    <a href="{{ url_for('employee.employee_list') }}" class="quick-btn">
+        Employee List
+    </a>
+
+    <a href="{{ url_for('designation.list_designations') }}" class="quick-btn">
+        Designations
+    </a>
+
+</div>      
+
+
+<h1>{{ total_employees }}</h1>
+
+<h1>{{ total_designations }}</h1>
+
+<h1>{{ active_employees }}</h1>
+
+
+
+{% endblock %}

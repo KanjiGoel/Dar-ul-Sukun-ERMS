@@ -1,0 +1,128 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Employees
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/employee.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-content">
+
+    <div class="employee-header">
+
+        <h2>Employee Management</h2>
+
+        <a href="{{ url_for('employee.add_employee') }}"
+           class="add-btn">
+            + Add Employee
+        </a>
+
+    </div>
+
+    <form method="GET"
+          action="{{ url_for('employee.employee_list') }}"
+          class="search-box">
+
+        <input type="text"
+               name="search"
+               placeholder="Search by Name, Code or CNIC"
+               value="{{ search if search else '' }}">
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    <table class="employee-table">
+
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Status</th>
+                <th>View</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for emp in employees %}
+
+        <tr>
+
+            <td>{{ emp.employee_code }}</td>
+            <td>{{ emp.employee_name }}</td>
+            <td>{{ emp.phone }}</td>
+
+            <td>
+                {{ emp.department.department_name if emp.department else '-' }}
+            </td>
+
+            <td>
+                {{ emp.designation.designation_name if emp.designation else '-' }}
+            </td>
+
+            <td>
+                {% if emp.status == "Active" %}
+                    <span class="status-active">Active</span>
+                {% else %}
+                    <span class="status-inactive">Inactive</span>
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="{{ url_for('employee.view_employee',
+                employee_id=emp.employee_id) }}">
+                    View
+                </a>
+
+
+
+               <td>
+
+    <a href="{{ url_for('employee.view_employee',
+    employee_id=emp.employee_id) }}">
+        View
+    </a>
+
+    {% if session.get("role") in ["Admin", "Manager"] %}
+    <a href="{{ url_for('employee.edit_employee',
+    employee_id=emp.employee_id) }}">
+        Edit
+    </a>
+    {% endif %}
+
+    {% if session.get("role") == "Admin" %}
+    <a href="{{ url_for('employee.delete_employee',
+    employee_id=emp.employee_id) }}">
+        Delete
+    </a>
+    {% endif %}
+
+</td>
+
+
+
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

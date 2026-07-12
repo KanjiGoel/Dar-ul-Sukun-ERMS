@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+</head>
+
+<body>
+
+<h1 class="dashboard-title">
+    Dar-ul-Sukun ERMS Dashboard
+</h1>
+
+<div class="dashboard-container">
+
+    <div class="card">
+        <h2>{{ total_employees }}</h2>
+        <p>Total Employees</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ active_employees }}</h2>
+        <p>Active Employees</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ inactive_employees }}</h2>
+        <p>Inactive Employees</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ total_departments }}</h2>
+        <p>Departments</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ total_designations }}</h2>
+        <p>Designations</p>
+    </div>
+
+</div>
+
+</body>
+</html>

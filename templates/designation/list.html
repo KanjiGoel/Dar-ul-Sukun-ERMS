@@ -1,0 +1,69 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Designation Management
+{% endblock %}
+
+{% block content %}
+
+<div class="page-content">
+
+    <div class="employee-header">
+
+        <h2>Designation Management</h2>
+
+        <a href="{{ url_for('designation.add_designation') }}"
+           class="add-btn">
+            + Add Designation
+        </a>
+
+    </div>
+
+    <table class="employee-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Designation Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for emp in designations %}
+
+        <tr>
+
+            <td>{{ emp.designation_id }}</td>
+
+            <td>{{ emp.designation_name }}</td>
+
+            <td>
+
+                <a href="{{ url_for('designation.edit_designation',
+                designation_id=emp.designation_id) }}"
+                class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
+                <a href="{{ url_for('designation.delete_designation',
+                designation_id=emp.designation_id) }}"
+                class="btn btn-danger btn-sm"
+                onclick="return confirm('Delete this designation?')">
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

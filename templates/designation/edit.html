@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Edit Designation
+{% endblock %}
+
+{% block content %}
+
+<div class="page-content">
+
+    <h2>Edit Designation</h2>
+
+    <form method="POST">
+
+        <input type="text"
+               name="designation_name"
+               value="{{ designation.designation_name }}"
+               required>
+
+        <button type="submit">
+            Update Designation
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

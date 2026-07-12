@@ -1,0 +1,234 @@
+
+
+
+
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/employee.css') }}">
+{% endblock %}
+
+
+
+
+<form method="POST" enctype="multipart/form-data">
+
+    <!-- ================= Personal ================= -->
+    <h2 class="section-title">Personal Information</h2>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label>Employee Code</label>
+            <input type="text" name="employee_code" required>
+        </div>
+
+        <div class="form-group">
+            <label>Employee Name</label>
+            <input type="text" name="employee_name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Father Name</label>
+            <input type="text" name="father_name">
+        </div>
+
+        <div class="form-group">
+            <label>CNIC</label>
+            <input type="text" name="cnic">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+    <label>Marital Status</label>
+    <select name="marital_status">
+        <option value="">Select</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Widow">Widow</option>
+        <option value="Divorced">Divorced</option>
+    </select>
+ </div>
+
+ <div class="form-group">
+    <label>Blood Group</label>
+    <input type="text" name="blood_group" placeholder="O+, A+, B+, AB+">
+ </div>
+
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="date_of_birth">
+        </div>
+
+    </div>
+
+    <!-- ================= Contact ================= -->
+    <h2 class="section-title">Contact Information</h2>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="phone">
+        </div>
+
+
+            <div class="form-group">
+             <label>Alternate Phone</label>
+            <input type="text" name="alternate_phone">
+            </div>
+
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea name="address"></textarea>
+        </div>
+
+
+
+        <div class="form-group">
+    <label>Permanent Address</label>
+    <textarea name="permanent_address"></textarea>
+ </div>
+
+ <div class="form-group">
+    <label>Domicile District</label>
+    <input type="text" name="domicile_district">
+  </div>
+
+    </div>
+
+    <!-- ================= Employment ================= -->
+    <h2 class="section-title">Employment Information</h2>
+
+    <div class="form-grid">
+
+
+
+        <div class="form-group">
+       <label>Joining Date</label>
+       <input type="date" name="joining_date">
+       </div>
+
+        <div class="form-group">
+            <label>Current Salary</label>
+            <input type="number" name="current_salary" step="0.01">
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select name="status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Department</label>
+            <select name="department_id" required>
+                {% for dept in departments %}
+                <option value="{{ dept.department_id }}">
+                    {{ dept.department_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Designation</label>
+            <select name="designation_id" required>
+                {% for d in designations %}
+                <option value="{{ d.designation_id }}">
+                    {{ d.designation_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Supervisor</label>
+            <select name="supervisor_id">
+                <option value="">None</option>
+
+                {% for e in employees %}
+                <option value="{{ e.employee_id }}">
+                    {{ e.employee_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+    </div>
+
+
+
+              <h2 class="section-title">Profile Information</h2>
+
+ <div class="form-grid">
+
+    <div class="form-group">
+        <label>Passport Size Photo</label>
+        <input type="file" name="profile_photo">
+    </div>
+
+ </div>
+
+
+
+
+
+         <h2 class="section-title">Documents Upload</h2>
+
+ <div class="form-grid">
+
+    <div class="form-group">
+        <label>CNIC Front</label>
+        <input type="file" name="cnic_front">
+    </div>
+
+    <div class="form-group">
+        <label>CNIC Back</label>
+        <input type="file" name="cnic_back">
+    </div>
+
+    <div class="form-group">
+        <label>Domicile Certificate</label>
+        <input type="file" name="domicile_file">
+    </div>
+
+    <div class="form-group">
+        <label>Education Certificates</label>
+        <input type="file" name="education_certificate">
+    </div>
+
+    <div class="form-group">
+        <label>Joining Letter</label>
+        <input type="file" name="joining_letter">
+    </div>
+
+ </div>
+
+
+
+
+    <button type="submit" class="save-btn">
+        Save Employee
+    </button>
+
+</form>
