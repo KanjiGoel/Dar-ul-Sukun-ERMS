@@ -1,0 +1,4 @@
+flask
+guicorn
+psycog2-binary
+python-dotenv
